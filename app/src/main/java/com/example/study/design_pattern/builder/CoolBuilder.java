@@ -4,7 +4,7 @@ public class CoolBuilder implements IBuilder{
     private Computer computer = new Computer();
     @Override
     public void createMainBoard(String mainBoard) {
-        computer.setCpu("cool:"+mainBoard);
+        computer.setMainBoard("cool:"+mainBoard);
     }
 
     @Override
@@ -14,12 +14,12 @@ public class CoolBuilder implements IBuilder{
 
     @Override
     public void createhardDisk(String hardDisk) {
-        computer.setCpu("cool:"+hardDisk);
+        computer.setHardDisk("cool:"+hardDisk);
     }
 
     @Override
     public void createMemory(String memory) {
-        computer.setCpu("cool:"+memory);
+        computer.setMemory("cool:"+memory);
     }
 
     @Override

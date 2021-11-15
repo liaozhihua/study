@@ -4,7 +4,7 @@ public class AssemblerBuilder implements IBuilder{
     private Computer computer = new Computer();
     @Override
     public void createMainBoard(String mainBoard) {
-        computer.setCpu(mainBoard);
+        computer.setMainBoard(mainBoard);
     }
 
     @Override
@@ -14,12 +14,12 @@ public class AssemblerBuilder implements IBuilder{
 
     @Override
     public void createhardDisk(String hardDisk) {
-        computer.setCpu(hardDisk);
+        computer.setHardDisk(hardDisk);
     }
 
     @Override
     public void createMemory(String memory) {
-        computer.setCpu(memory);
+        computer.setMemory(memory);
     }
 
     @Override
