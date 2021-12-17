@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
@@ -79,6 +80,7 @@ public class Rxjava2Example {
             public void onSubscribe(@NotNull Disposable d) {
                 Log.e(TAG, "currentThread2:"+Thread.currentThread().getName());
                 Log.e(TAG, "Disposable" + "\n");
+                d.dispose();
             }
 
             @Override
@@ -213,4 +215,85 @@ public class Rxjava2Example {
         });
     }
 
+    public void method1() {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
+                Log.e(TAG, "subscribe:" + Thread.currentThread().getName() + "\n");
+                e.onNext("啦啦啦");
+            }
+        }).map(new Function<String, String>() {
+            @Override
+            public String apply(@NonNull String response) throws Exception {
+
+                Log.e(TAG, "map 线程:" + Thread.currentThread().getName() + "\n");
+
+                return "Function";
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(new Consumer<String>() {
+                    @Override
+                    public void accept(@NonNull String s) throws Exception {
+                        Log.e(TAG, "doOnNext 线程:" + Thread.currentThread().getName() + "\n");
+                        Log.e(TAG, "doOnNext: 保存成功：" + s.toString() + "\n");
+
+                    }
+                })
+                //.observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(@NonNull String data) throws Exception {
+                        Log.e(TAG, "subscribe 线程:" + Thread.currentThread().getName() + "\n");
+                        Log.e(TAG, "成功:" + data.toString() + "\n");
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+                        Log.e(TAG, "subscribe 线程:" + Thread.currentThread().getName() + "\n");
+
+                        Log.e(TAG, "失败：" + throwable.getMessage() + "\n");
+                    }
+                });
+    }
+
+    public void method2() {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(@NotNull ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1000);
+                Log.e(TAG,"subscribe:"+Thread.currentThread().getName()+"\n");
+            }
+        })
+                .observeOn(AndroidSchedulers.mainThread()) // 为doOnNext() 指定在主线程，否则报错
+                .doOnNext(new Consumer<Integer>() {
+                    @Override
+                    public void accept(@NonNull Integer data) throws Exception {
+                        Log.e(TAG, "doOnNext:"+Thread.currentThread().getName()+"\n" );
+                        Log.e(TAG,"doOnNext:"+data.toString()+"\n");
+                    }
+                })
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(@NonNull Integer mobileAddress) throws Exception {
+                        Log.e(TAG, "\n" );
+                        Log.e(TAG, "map:"+Thread.currentThread().getName()+"\n" );
+                        return "mobileAddress.getResult()";
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(@NonNull String data) throws Exception {
+                        Log.e(TAG, "subscribe 成功:"+Thread.currentThread().getName()+"\n" );
+                        Log.e(TAG, "成功:" + data.toString() + "\n");
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+                        Log.e(TAG, "subscribe 失败:"+Thread.currentThread().getName()+"\n" );
+                        Log.e(TAG, "失败："+ throwable.getMessage()+"\n" );
+                    }
+                });
+    }
 }

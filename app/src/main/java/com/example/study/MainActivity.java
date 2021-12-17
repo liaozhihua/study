@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.study.model.UserModel;
 import com.example.study.rxjava.Rxjava2Example;
+
+import static android.content.ContentValues.TAG;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Rxjava2Example.normal();
+        Rxjava2Example rxjava2Example = new Rxjava2Example();
+        Log.e(TAG, "MainActivity:" + Thread.currentThread().getName() + "\n");
+        rxjava2Example.method2();
         Intent intent = new Intent();
 //        intent.setAction("dddddddddddddddddddd");
 //        startActivity(intent);
