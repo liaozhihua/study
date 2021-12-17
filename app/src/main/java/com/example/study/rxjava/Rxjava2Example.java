@@ -8,14 +8,33 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.content.ContentValues.TAG;
 
-public class RxjavaExample {
+public class Rxjava2Example {
+    /**
+     * create 操作符应该是最常见的操作符了，主要用于产生一个 Obserable 被观察者对象
+     */
+    public void create() {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NotNull ObservableEmitter<String> e) throws Exception {
+                e.onNext("lalala");
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(@NotNull String s) throws Exception {
+
+            }
+        });
+
+    }
     /**
      * 2021-12-14 19:47:57.052 21237-21237/com.example.study E/ContentValues: currentThread2:main
      * 2021-12-14 19:47:57.052 21237-21237/com.example.study E/ContentValues: Disposable
@@ -117,6 +136,81 @@ public class RxjavaExample {
             public void onComplete() {
 
             }
-        })
+        });
     }
+
+    //zip 专用于合并事件，该合并不是连接（连接操作符后面会说），而是两两配对，也就意味着，最终配对出的 Observable 发射事件数目只和少的那个相同。
+
+    /**
+     * zip 组合事件的过程就是分别从发射器 A 和发射器 B 各取出一个事件来组合，并且一个事件只能被使用一次，组合的顺序是严格按照事件发送的顺序来进行的，所以上面截图中，可以看到，1 永远是和 A 结合的，2 永远是和 B 结合的。
+     *
+     * 最终接收器收到的事件数量是和发送器发送事件最少的那个发送器的发送事件数目相同，所以如截图中，5 很孤单，没有人愿意和它交往，孤独终老的单身狗。
+     *
+     * 作者：nanchen2251
+     * 链接：https://www.jianshu.com/p/b39afa92807e
+     * 来源：简书
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    public void zip() {
+        Observable.zip(getStringObservable(), getIntegerObservable(), new BiFunction<String, Integer, String>() {
+            @NotNull
+            @Override
+            public String apply(@NotNull String s, @NotNull Integer integer) throws Exception {
+                return null;
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(@NotNull String s) throws Exception {
+
+            }
+        });
+    }
+
+    //发射器 B 把自己的三个孩子送给了发射器 A，让他们组合成了一个新的发射器，非常懂事的孩子，有条不紊的排序接收。
+    public void concat() {
+        Observable.concat(Observable.just(1,2,3), Observable.just(4,5,6))
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(@NonNull Integer integer) throws Exception {
+                        Log.e(TAG, "concat : "+ integer + "\n" );
+                    }
+                });
+    }
+
+    private Observable<String> getStringObservable() {
+        return Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
+                if (!e.isDisposed()) {
+                    e.onNext("A");
+                    Log.e(TAG, "String emit : A \n");
+                    e.onNext("B");
+                    Log.e(TAG, "String emit : B \n");
+                    e.onNext("C");
+                    Log.e(TAG, "String emit : C \n");
+                }
+            }
+        });
+    }
+
+    private Observable<Integer> getIntegerObservable() {
+        return Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Integer> e) throws Exception {
+                if (!e.isDisposed()) {
+                    e.onNext(1);
+                    Log.e(TAG, "Integer emit : 1 \n");
+                    e.onNext(2);
+                    Log.e(TAG, "Integer emit : 2 \n");
+                    e.onNext(3);
+                    Log.e(TAG, "Integer emit : 3 \n");
+                    e.onNext(4);
+                    Log.e(TAG, "Integer emit : 4 \n");
+                    e.onNext(5);
+                    Log.e(TAG, "Integer emit : 5 \n");
+                }
+            }
+        });
+    }
+
 }

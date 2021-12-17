@@ -27,6 +27,7 @@ public class Rxjava1Example {
     //正常文件加载图片展示
     public void method() {
         File[] files = new File[0];
+        Observable.create()
         Observable.from(files).flatMap(new Func1<File, Observable<File>>() {
             @Override
             public Observable<File> call(File s) {
@@ -44,9 +45,19 @@ public class Rxjava1Example {
                 return null;
             }
         }).subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Bitmap>() {
+                observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Bitmap>() {
             @Override
-            public void call(Bitmap bitmap) {
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Bitmap bitmap) {
 
             }
         });
