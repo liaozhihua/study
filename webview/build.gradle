@@ -1,6 +1,5 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id 'com.android.library'
 }
 
 android {
@@ -25,22 +24,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
+//    dataBinding {
+//        enable  true
+//    }
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
     implementation "androidx.appcompat:appcompat:$rootProject.appcompatXVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintlayoutVersion"
-    //viewMouble使用
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
-//    implementation 'io.reactivex:rxjava:1.0.14'
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxjavaVersion"
-    implementation project(":webview")//依赖webview androudlibrary 的module
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation project(":common")
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sutdy.webview">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+<!--    Android Pie默认情况下禁用纯HTTP
+所以，後續我們在新建Android項目或者升級Android項目 API版本（targetSdkVersion）,當選擇27或者27以上時候，就會出現http請求失效的情況
+因此我们在清单中添加了usesClearTextTraffic =" true"。-->
+    <application
+        android:usesCleartextTraffic="true">
+        <activity android:name=".WebviewActivity"></activity>
+    </application>
+
+</manifest>

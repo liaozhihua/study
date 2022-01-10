@@ -1,2 +1,5 @@
 rootProject.name = "study"
 include ':app'
+include ':webview'
+include ':common'
+include ':base'
