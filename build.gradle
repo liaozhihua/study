@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
@@ -19,6 +20,8 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        //compose (2) 使用试验版Kotlin-Gradle 插件
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
 
