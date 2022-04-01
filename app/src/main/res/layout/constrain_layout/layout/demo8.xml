@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:background="#144494"
+        app:layout_constrainedWidth="true"
         android:text="dddddddddddddddddddddddddddddd"
         app:layout_constraintStart_toStartOf="@+id/tv_left"
         app:layout_constraintEnd_toEndOf="@+id/tv_left"
