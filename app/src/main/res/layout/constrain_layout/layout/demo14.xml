@@ -3,14 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
+    <androidx.constraintlayout.helper.widget.Layer
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="tv_top1,tv_top2"/>
+        app:constraint_referenced_ids="tv_top1,tv_top2,tv_top3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp"
+        android:background="#000000"/>
     <TextView
         android:id="@+id/tv_top1"
+        android:layout_marginTop="30dp"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:background="#733994"
@@ -31,6 +34,7 @@
         android:layout_width="30dp"
         android:layout_height="100dp"
         android:background="#418929"
+        android:layout_marginStart="30dp"
         android:text="ddddddddddddddddddddddddddddddddddddddd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
