@@ -1,6 +1,7 @@
 package com.example.study;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 
 import android.content.Intent;
@@ -8,11 +9,13 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 import com.example.study.model.UserModel;
 import com.example.study.rxjava.Rxjava2Example;
@@ -28,8 +31,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        webview = findViewById(R.id.webview);
-        initWebView();
+
+        NestedScrollView scroll_view = findViewById(R.id.scroll_view);
+
+        Button btn_click1 = findViewById(R.id.btn_click);
+        Button btn_click10 = findViewById(R.id.btn_click10);
+        btn_click10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scroll_view.smoothScrollTo(0,btn_click1.getTop());
+            }
+        });
+//        webview = findViewById(R.id.webview);
+//        initWebView();
 //        Rxjava2Example rxjava2Example = new Rxjava2Example();
 //        Log.e(TAG, "MainActivity:" + Thread.currentThread().getName() + "\n");
 //        rxjava2Example.method2();
