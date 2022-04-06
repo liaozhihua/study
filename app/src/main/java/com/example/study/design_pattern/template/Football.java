@@ -3,17 +3,17 @@ package com.example.study.design_pattern.template;
 public class Football extends Game {
 
     @Override
-    void endPlay() {
+    protected void endPlay() {
         System.out.println("Football Game Finished!");
     }
 
     @Override
-    void initialize() {
+    protected void initialize() {
         System.out.println("Football Game Initialized! Start playing.");
     }
 
     @Override
-    void startPlay() {
+    protected void startPlay() {
         System.out.println("Football Game Started. Enjoy the game!");
     }
 }

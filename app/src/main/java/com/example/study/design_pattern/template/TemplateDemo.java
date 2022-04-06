@@ -1,6 +1,6 @@
 package com.example.study.design_pattern.template;
 
-/**
+/**  直接参考https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009
  * 参考：https://www.runoob.com/design-pattern/template-pattern.html
  * 模板模式：个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现。  属于行为型模式。
  *
