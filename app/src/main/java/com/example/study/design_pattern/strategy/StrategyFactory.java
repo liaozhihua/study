@@ -23,7 +23,7 @@ package com.example.study.design_pattern.strategy;
  * 容器只是将内部策略的行为抽取出来，进行了统一的实现。
  */
 public class StrategyFactory {
-    private Strategy strategy;
+    private Strategy strategy = new OperationAdd();
     public StrategyFactory(Strategy strategy) {
         this.strategy = strategy;
     }
