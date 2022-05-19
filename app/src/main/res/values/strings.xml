@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">study</string>
+    <string name="block_canary_display_activity_label">Blocks</string>
 </resources>

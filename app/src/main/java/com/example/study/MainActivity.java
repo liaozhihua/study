@@ -17,6 +17,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import com.example.base.net.HttpManager;
 import com.example.study.model.UserModel;
 import com.example.study.rxjava.Rxjava2Example;
 
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 scroll_view.smoothScrollTo(0,btn_click1.getTop());
             }
         });
+        HttpManager.getInstance().execute("https://www.baidu.com/");
+
+//        Intent intent = new Intent(this, MainActivity2.class);
+//        startActivity(intent);
 //        webview = findViewById(R.id.webview);
 //        initWebView();
 //        Rxjava2Example rxjava2Example = new Rxjava2Example();

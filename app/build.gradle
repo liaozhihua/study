@@ -3,6 +3,10 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -60,4 +64,6 @@ dependencies {
     implementation 'androidx.ui:ui-tooling:0.1.0-dev02'
     implementation 'androidx.ui:ui-layout:0.1.0-dev02'
     implementation 'androidx.ui:ui-material:0.1.0-dev02'
+
+    implementation project(":base")
 }
