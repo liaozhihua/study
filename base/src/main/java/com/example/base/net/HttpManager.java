@@ -124,7 +124,6 @@ public class HttpManager {
 
         Request request = builder.url("https://api.github.com/markdown/raw").post(body).build();
         Call call = httpClient.newCall(request);
-        inn.Companion.mehtod();
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
