@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Study">
         <activity
-            android:name=".design_pattern.mvp.ContorllerActivity"
+            android:name=".design_pattern.mvvm.UserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".design_pattern.mvc.ContorllerActivity"
             android:exported="false" />
         <activity
             android:name=".compose.ComposeActivity"

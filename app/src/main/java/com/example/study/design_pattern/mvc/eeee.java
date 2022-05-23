@@ -1,4 +1,4 @@
-package com.example.study.design_pattern.mvp;
+package com.example.study.design_pattern.mvc;
 
 /**
  * <pre>
