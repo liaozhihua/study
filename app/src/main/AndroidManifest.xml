@@ -13,14 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Study">
         <activity
+            android:name=".design_pattern.mvvm2.livedata.LiveDataTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".design_pattern.mvvm2.MvvmActivity"
             android:exported="false" />
         <activity
             android:name=".design_pattern.mvp.MvpActivity"
             android:exported="false" />
-        <activity
-            android:name=".design_pattern.mvvm.UserListActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".design_pattern.mvvm.UserListActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".design_pattern.mvc.ContorllerActivity"
             android:exported="false" />

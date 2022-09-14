@@ -1,6 +1,7 @@
 package com.example.base.net;
 
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
+import static android.content.ContentValues.TAG;
 
 import android.os.Environment;
 import android.util.Log;
@@ -10,8 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Cache;
-import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;

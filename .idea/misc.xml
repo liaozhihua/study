@@ -8,7 +8,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/activity_compose.xml" value="0.2234375" />
+        <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/activity_contorller.xml" value="0.18" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/activity_mvp.xml" value="0.2558974358974359" />
+        <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/activity_mvvm.xml" value="0.2453125" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/demo1.xml" value="0.25" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/demo2.xml" value="0.175" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/demo3.xml" value="0.175" />
@@ -18,6 +21,7 @@
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/constrain_layout/layout/demo7.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/layout/tex.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/base/src/main/res/layout/activity_base.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/liaozh/AndroidStudioProjects/study/webview/src/main/res/layout/fragment_webview.xml" value="0.18614130434782608" />
       </map>
     </option>

@@ -17,9 +17,9 @@ class MvvmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mvvm)
-        var binding: ArchitectureBindingBinding = DataBindingUtil.inflate(inflater, R.layout.activity_mvvm, container, false)
+//        var binding: ArchitectureBindingBinding = DataBindingUtil.inflate(inflater, R.layout.activity_mvvm, container, false)
         val viewModel = ViewModel(HandleModel())
-        binding.viewmodel = viewModel
+//        binding.viewmodel = viewModel
         init()
     }
 

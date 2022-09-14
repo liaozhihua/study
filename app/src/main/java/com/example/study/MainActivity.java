@@ -2,6 +2,9 @@ package com.example.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 
 import android.content.Intent;
@@ -147,5 +150,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         webview.loadUrl("https://www.jianshu.com/p/6c84097bfb9b");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MutableLiveData<String> liveData = new MutableLiveData<String>();
+        liveData.setValue();
+        liveData.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Log.i(TAG, "onChanged: "+s);
+            }
+        });
     }
 }
