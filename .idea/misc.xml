@@ -26,6 +26,14 @@
       </map>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/ArticalInfo.kt" />
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/GetApi.kt" />
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/PostApi.kt" />
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/RetrofitClient.kt" />
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/UseModel.kt" />
+    <file url="file://$PROJECT_DIR$/base/src/main/java/com/example/base/net/demo/UserInfo.kt" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

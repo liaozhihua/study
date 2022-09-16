@@ -44,4 +44,9 @@ dependencies {
     //网络 最新版本4.0+ 是koltin
     implementation 'com.squareup.okhttp3:okhttp:3.14.7'
     implementation 'com.squareup.okio:okio:2.2.2'
+
+    //Retrofit
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+//Gson converter
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
 }

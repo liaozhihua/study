@@ -9,6 +9,9 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <application></application>
+    <application
+        android:usesCleartextTraffic="true">
+
+    </application>
 
 </manifest>
